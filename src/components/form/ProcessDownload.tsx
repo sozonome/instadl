@@ -23,13 +23,13 @@ const ProcessDownload = ({ postURL }: ProcessDownloadProps) => {
     setMedia(null);
 
     const fetchedData = await axios
-      .get(`${postURL}?__a=1`)
+      .get(`${postURL.split("?")[0]}?__a=1`)
       .then((res) => res.data as RawResponseType)
       .catch(() => setErrorDL(true));
 
     setLoading(false);
 
-    if (fetchedData) {
+    if (fetchedData && fetchedData.graphql) {
       const {
         edge_sidecar_to_children,
         owner,
@@ -70,6 +70,8 @@ const ProcessDownload = ({ postURL }: ProcessDownloadProps) => {
 
       setUsername(owner.username);
       setFullName(owner.full_name);
+    } else {
+      setErrorDL(true);
     }
   };
 
