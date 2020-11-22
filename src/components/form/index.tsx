@@ -13,6 +13,9 @@ import { useState } from "react";
 import * as yup from "yup";
 import axios from "axios";
 
+import { RawResponseType } from "../../../types/rawResponseType";
+import Gallery, { MediaType } from "../media/Gallery";
+
 type FormType = {
   link: string;
 };
@@ -20,6 +23,8 @@ type FormType = {
 const Form = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [errorDL, setErrorDL] = useState<boolean>(false);
+
+  const [media, setMedia] = useState<Array<MediaType>>();
 
   const { values, handleSubmit, errors, handleChange, dirty } = useFormik<
     FormType
@@ -53,14 +58,49 @@ const Form = () => {
 
       const fetchedData = await axios
         .get(`${formValue.link}?__a=1`)
-        .then((res) => res.data)
+        .then((res) => res.data as RawResponseType)
         .catch(() => setErrorDL(true));
 
       setLoading(false);
 
-      window.location.assign(
-        `${fetchedData.graphql.shortcode_media.display_url}&dl=1`
-      );
+      if (fetchedData) {
+        // window.location.assign(
+        //   `${fetchedData.graphql.shortcode_media.display_url}&dl=1`
+        // );
+        if (fetchedData.graphql.shortcode_media.edge_sidecar_to_children) {
+          const medias: MediaType[] = fetchedData.graphql.shortcode_media.edge_sidecar_to_children.edges.map(
+            (edge) => ({
+              url: edge.node.is_video
+                ? edge.node.video_url
+                : edge.node.display_resources[2].src,
+              is_video: edge.node.is_video,
+              restricted: false,
+            })
+          );
+          setMedia(medias);
+        } else {
+          const updateMedia: MediaType[] = fetchedData.graphql.shortcode_media
+            .is_video
+            ? [
+                {
+                  url: fetchedData.graphql.shortcode_media.video_url,
+                  is_video: fetchedData.graphql.shortcode_media.is_video,
+                  restricted: false,
+                },
+              ]
+            : [
+                {
+                  url:
+                    fetchedData.graphql.shortcode_media.display_resources[2]
+                      .src,
+                  is_video: fetchedData.graphql.shortcode_media.is_video,
+                  restricted: false,
+                },
+              ];
+
+          setMedia(updateMedia);
+        }
+      }
     },
   });
 
@@ -101,6 +141,8 @@ const Form = () => {
         </Box>
       )}
       {errorDL && <Text textAlign="center">Wrong Link</Text>}
+
+      {media && <Gallery media={media} />}
     </Box>
   );
 };

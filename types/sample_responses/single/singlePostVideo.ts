@@ -34,11 +34,11 @@ export interface ShortcodeMedia {
     video_play_count:                null;
     is_video:                        boolean;
     tracking_token:                  string;
-    edge_media_to_tagged_user:       EdgeMediaToCaptionClass;
+    edge_media_to_tagged_user:       EdgeMediaToTaggedUser;
     edge_media_to_caption:           EdgeMediaToCaptionClass;
     caption_is_edited:               boolean;
     has_ranked_comments:             boolean;
-    edge_media_to_parent_comment:    EdgeMediaToParentComment;
+    edge_media_to_parent_comment:    EdgeMediaToParentCommentClass;
     edge_media_to_hoisted_comment:   EdgeMediaToCaptionClass;
     edge_media_preview_comment:      EdgeMediaPreview;
     comments_disabled:               boolean;
@@ -46,16 +46,16 @@ export interface ShortcodeMedia {
     taken_at_timestamp:              number;
     edge_media_preview_like:         EdgeMediaPreview;
     edge_media_to_sponsor_user:      EdgeMediaToCaptionClass;
-    location:                        null;
+    location:                        Location;
     viewer_has_liked:                boolean;
     viewer_has_saved:                boolean;
     viewer_has_saved_to_collection:  boolean;
     viewer_in_photo_of_you:          boolean;
     viewer_can_reshare:              boolean;
-    owner:                           Owner;
+    owner:                           ShortcodeMediaOwner;
     is_ad:                           boolean;
     edge_web_media_to_related_media: EdgeMediaToCaptionClass;
-    encoding_status:                 string;
+    encoding_status:                 null;
     is_published:                    boolean;
     product_type:                    string;
     title:                           string;
@@ -67,7 +67,7 @@ export interface ShortcodeMedia {
 
 export interface DashInfo {
     is_dash_eligible:    boolean;
-    video_dash_manifest: string;
+    video_dash_manifest: null;
     number_of_qualities: number;
 }
 
@@ -87,15 +87,43 @@ export interface EdgeMediaPreview {
     edges: EdgeMediaPreviewCommentEdge[];
 }
 
+export interface EdgeMediaToParentCommentClass {
+    count:     number;
+    page_info: PageInfo;
+    edges:     EdgeMediaPreviewCommentEdge[];
+}
+
+export interface PurpleNode {
+    id:                      string;
+    text:                    string;
+    created_at:              number;
+    did_report_as_spam:      boolean;
+    owner:                   UserClass;
+    viewer_has_liked:        boolean;
+    edge_liked_by:           EdgeFollowedByClass;
+    is_restricted_pending:   boolean;
+    edge_threaded_comments?: EdgeMediaToParentCommentClass;
+}
+
 export interface EdgeMediaPreviewCommentEdge {
     node: PurpleNode;
 }
 
-export interface PurpleNode {
+export interface PageInfo {
+    has_next_page: boolean;
+    end_cursor:    null;
+}
+
+export interface EdgeFollowedByClass {
+    count: number;
+}
+
+export interface UserClass {
     id:              string;
     is_verified:     boolean;
     profile_pic_url: string;
     username:        string;
+    full_name?:      string;
 }
 
 export interface EdgeMediaToCaptionClass {
@@ -110,24 +138,35 @@ export interface FluffyNode {
     text: string;
 }
 
-export interface EdgeMediaToParentComment {
-    count:     number;
-    page_info: PageInfo;
-    edges:     any[];
+export interface EdgeMediaToTaggedUser {
+    edges: EdgeMediaToTaggedUserEdge[];
 }
 
-export interface PageInfo {
-    has_next_page: boolean;
-    end_cursor:    null;
+export interface EdgeMediaToTaggedUserEdge {
+    node: TentacledNode;
 }
 
-export interface Owner {
+export interface TentacledNode {
+    user: UserClass;
+    x:    number;
+    y:    number;
+}
+
+export interface Location {
+    id:              string;
+    has_public_page: boolean;
+    name:            string;
+    slug:            string;
+    address_json:    string;
+}
+
+export interface ShortcodeMediaOwner {
     id:                           string;
     is_verified:                  boolean;
     profile_pic_url:              string;
     username:                     string;
     blocked_by_viewer:            boolean;
-    restricted_by_viewer:         boolean;
+    restricted_by_viewer:         null;
     followed_by_viewer:           boolean;
     full_name:                    string;
     has_blocked_viewer:           boolean;
@@ -137,10 +176,6 @@ export interface Owner {
     pass_tiering_recommendation:  boolean;
     edge_owner_to_timeline_media: EdgeFollowedByClass;
     edge_followed_by:             EdgeFollowedByClass;
-}
-
-export interface EdgeFollowedByClass {
-    count: number;
 }
 
 export interface SharingFrictionInfo {

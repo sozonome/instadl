@@ -4,7 +4,7 @@
 //
 //   "Set quicktype target language"
 
-export interface RawResponseType {
+export interface SinglePostVideoIGTV {
     graphql: Graphql;
 }
 
@@ -23,52 +23,51 @@ export interface ShortcodeMedia {
     sensitivity_friction_info:       null;
     sharing_friction_info:           SharingFrictionInfo;
     media_overlay_info:              null;
-    media_preview:                   null | string;
+    media_preview:                   string;
     display_url:                     string;
     display_resources:               DisplayResource[];
+    accessibility_caption:           null;
+    dash_info:                       DashInfo;
+    has_audio:                       boolean;
+    video_url:                       string;
+    video_view_count:                number;
+    video_play_count:                null;
     is_video:                        boolean;
     tracking_token:                  string;
-    edge_media_to_tagged_user:       EdgeMediaToTaggedUser;
+    edge_media_to_tagged_user:       EdgeMediaToCaptionClass;
     edge_media_to_caption:           EdgeMediaToCaptionClass;
     caption_is_edited:               boolean;
     has_ranked_comments:             boolean;
     edge_media_to_parent_comment:    EdgeMediaToParentCommentClass;
     edge_media_to_hoisted_comment:   EdgeMediaToCaptionClass;
-    edge_media_preview_comment:      EdgeMediaPreviewComment;
+    edge_media_preview_comment:      EdgeMediaPreview;
     comments_disabled:               boolean;
     commenting_disabled_for_viewer:  boolean;
     taken_at_timestamp:              number;
-    edge_media_preview_like:         EdgeMediaPreviewLike;
+    edge_media_preview_like:         EdgeMediaPreview;
     edge_media_to_sponsor_user:      EdgeMediaToCaptionClass;
-    location:                        Location | null;
+    location:                        null;
     viewer_has_liked:                boolean;
     viewer_has_saved:                boolean;
     viewer_has_saved_to_collection:  boolean;
     viewer_in_photo_of_you:          boolean;
     viewer_can_reshare:              boolean;
-    owner:                           Owner;
+    owner:                           ShortcodeMediaOwner;
     is_ad:                           boolean;
     edge_web_media_to_related_media: EdgeMediaToCaptionClass;
-    edge_sidecar_to_children?:       EdgeSidecarToChildren;
+    encoding_status:                 null;
+    is_published:                    boolean;
+    product_type:                    string;
+    title:                           string;
+    video_duration:                  number;
+    thumbnail_src:                   string;
+    clips_music_attribution_info:    null;
     edge_related_profiles:           EdgeMediaToCaptionClass;
-    accessibility_caption?:          null | string;
-    dash_info?:                      DashInfo;
-    has_audio?:                      boolean;
-    video_url?:                      string;
-    video_view_count?:               number;
-    video_play_count?:               null;
-    encoding_status?:                null | string;
-    is_published?:                   boolean;
-    product_type?:                   string;
-    title?:                          string;
-    video_duration?:                 number;
-    thumbnail_src?:                  string;
-    clips_music_attribution_info?:   null;
 }
 
 export interface DashInfo {
     is_dash_eligible:    boolean;
-    video_dash_manifest: null | string;
+    video_dash_manifest: null;
     number_of_qualities: number;
 }
 
@@ -83,7 +82,7 @@ export interface DisplayResource {
     config_height: number;
 }
 
-export interface EdgeMediaPreviewComment {
+export interface EdgeMediaPreview {
     count: number;
     edges: EdgeMediaPreviewCommentEdge[];
 }
@@ -99,7 +98,7 @@ export interface PurpleNode {
     text:                    string;
     created_at:              number;
     did_report_as_spam:      boolean;
-    owner:                   OwnerClass;
+    owner:                   NodeOwner;
     viewer_has_liked:        boolean;
     edge_liked_by:           EdgeFollowedByClass;
     is_restricted_pending:   boolean;
@@ -119,21 +118,11 @@ export interface EdgeFollowedByClass {
     count: number;
 }
 
-export interface OwnerClass {
+export interface NodeOwner {
     id:              string;
     is_verified:     boolean;
     profile_pic_url: string;
     username:        string;
-    full_name?:      string;
-}
-
-export interface EdgeMediaPreviewLike {
-    count: number;
-    edges: EdgeMediaPreviewLikeEdge[];
-}
-
-export interface EdgeMediaPreviewLikeEdge {
-    node: OwnerClass;
 }
 
 export interface EdgeMediaToCaptionClass {
@@ -148,73 +137,13 @@ export interface FluffyNode {
     text: string;
 }
 
-export interface EdgeMediaToTaggedUser {
-    edges: EdgeMediaToTaggedUserEdge[];
-}
-
-export interface EdgeMediaToTaggedUserEdge {
-    node: TentacledNode;
-}
-
-export interface TentacledNode {
-    user: OwnerClass;
-    x:    number;
-    y:    number;
-}
-
-export interface EdgeSidecarToChildren {
-    edges: EdgeSidecarToChildrenEdge[];
-}
-
-export interface EdgeSidecarToChildrenEdge {
-    node: StickyNode;
-}
-
-export interface StickyNode {
-    __typename:                string;
-    id:                        string;
-    shortcode:                 string;
-    dimensions:                Dimensions;
-    gating_info:               null;
-    fact_check_overall_rating: null;
-    fact_check_information:    null;
-    sensitivity_friction_info: null;
-    sharing_friction_info:     SharingFrictionInfo;
-    media_overlay_info:        null;
-    media_preview:             string;
-    display_url:               string;
-    display_resources:         DisplayResource[];
-    accessibility_caption:     null | string;
-    is_video:                  boolean;
-    tracking_token:            string;
-    edge_media_to_tagged_user: EdgeMediaToTaggedUser;
-    dash_info?:                DashInfo;
-    has_audio?:                boolean;
-    video_url?:                string;
-    video_view_count?:         number;
-    video_play_count?:         null;
-}
-
-export interface SharingFrictionInfo {
-    should_have_sharing_friction: boolean;
-    bloks_app_url:                null;
-}
-
-export interface Location {
-    id:              string;
-    has_public_page: boolean;
-    name:            string;
-    slug:            string;
-    address_json:    string;
-}
-
-export interface Owner {
+export interface ShortcodeMediaOwner {
     id:                           string;
     is_verified:                  boolean;
     profile_pic_url:              string;
     username:                     string;
     blocked_by_viewer:            boolean;
-    restricted_by_viewer:         boolean | null;
+    restricted_by_viewer:         null;
     followed_by_viewer:           boolean;
     full_name:                    string;
     has_blocked_viewer:           boolean;
@@ -224,4 +153,9 @@ export interface Owner {
     pass_tiering_recommendation:  boolean;
     edge_owner_to_timeline_media: EdgeFollowedByClass;
     edge_followed_by:             EdgeFollowedByClass;
+}
+
+export interface SharingFrictionInfo {
+    should_have_sharing_friction: boolean;
+    bloks_app_url:                null;
 }

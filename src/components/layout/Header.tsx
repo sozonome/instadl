@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   return (
-    <Flex as="header" width="full" align="center">
+    <Flex as="header" height={10} width="full" align="center">
       <AccessibleLink href="/">
         <Heading as="h1">InstaDL</Heading>
       </AccessibleLink>

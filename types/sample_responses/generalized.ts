@@ -4,12 +4,12 @@
 //
 //   "Set quicktype target language"
 
-export interface RawResponseType {
+export interface Generalize {
     graphql: Graphql;
 }
 
 export interface Graphql {
-    shortcode_media: ShortcodeMedia;
+    shortcode_media: ShortcodeMedia[];
 }
 
 export interface ShortcodeMedia {

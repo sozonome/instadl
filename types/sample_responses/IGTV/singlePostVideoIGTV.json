@@ -1,0 +1,242 @@
+{
+  "graphql": {
+    "shortcode_media": {
+      "__typename": "GraphVideo",
+      "id": "2346404568035722617",
+      "shortcode": "CCQGoXZH4V5",
+      "dimensions": { "height": 995, "width": 640 },
+      "gating_info": null,
+      "fact_check_overall_rating": null,
+      "fact_check_information": null,
+      "sensitivity_friction_info": null,
+      "sharing_friction_info": {
+        "should_have_sharing_friction": false,
+        "bloks_app_url": null
+      },
+      "media_overlay_info": null,
+      "media_preview": "ABsqyJLYxnDDHoex/wA/nUYXHBq9BdFRskG9PfqP8/5NWTZiQb4TuXuO4/z+f1pkGQY+4pdntWibcimELQBEkbHnHFaVsBC4OcZHb+tZqznbgcU0SkGgSOmuHil4ztY9+30NZD20gJG0n6VWabI65pou5VGAxAFAzP3Z9qcDUNKKBk+8CkLVCadQB//Z",
+      "display_url": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-15/e35/106282503_327621618234518_1443670734562159558_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=F0YjG2SRIhAAX_xhZ7B&tp=1&oh=a7ec47649312bc16cbd5e999139f9247&oe=5FBCB866",
+      "display_resources": [
+        {
+          "src": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-15/e35/106282503_327621618234518_1443670734562159558_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=F0YjG2SRIhAAX_xhZ7B&tp=1&oh=a7ec47649312bc16cbd5e999139f9247&oe=5FBCB866",
+          "config_width": 640,
+          "config_height": 995
+        },
+        {
+          "src": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-15/e35/106282503_327621618234518_1443670734562159558_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=F0YjG2SRIhAAX_xhZ7B&tp=1&oh=a7ec47649312bc16cbd5e999139f9247&oe=5FBCB866",
+          "config_width": 750,
+          "config_height": 1166
+        },
+        {
+          "src": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-15/e35/106282503_327621618234518_1443670734562159558_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=F0YjG2SRIhAAX_xhZ7B&tp=1&oh=a7ec47649312bc16cbd5e999139f9247&oe=5FBCB866",
+          "config_width": 1080,
+          "config_height": 1680
+        }
+      ],
+      "accessibility_caption": null,
+      "dash_info": {
+        "is_dash_eligible": false,
+        "video_dash_manifest": null,
+        "number_of_qualities": 0
+      },
+      "has_audio": true,
+      "video_url": "https://instagram.fcgk18-1.fna.fbcdn.net/v/t50.16885-16/10000000_1133518787031601_6502568484222969741_n.mp4?efg=eyJ2ZW5jb2RlX3RhZyI6InZ0c192b2RfdXJsZ2VuLjEyODAuaWd0di5kZWZhdWx0IiwicWVfZ3JvdXBzIjoiW1wiaWdfd2ViX2RlbGl2ZXJ5X3Z0c19vdGZcIl0ifQ&_nc_ht=instagram.fcgk18-1.fna.fbcdn.net&_nc_cat=101&_nc_ohc=7d9K-YlKo3sAX-DixPW&vs=17872002973817089_1513300909&_nc_vs=HBksFQAYJEdJQ1dtQUF4c3FYbzdRWUVBSTJud3BXVnd6MWFidlZCQUFBRhUAAsgBABUAGCRHTTRHYWdhd0lBZDQ5WkFDQUF3MXpkeTcxejBMYnZWQkFBQUYVAgLIAQAoABgAGwGIB3VzZV9vaWwBMRUAACaCy6bYuZ%2B%2FPxUCKAJDMywXQGLd2yLQ5WAYEmRhc2hfYmFzZWxpbmVfMV92MREAdewHAA%3D%3D&_nc_rid=dd11bb55cb&oe=5FBC95E8&oh=8c3e07bd96cb59f8148531f06de1d729",
+      "video_view_count": 236,
+      "video_play_count": null,
+      "is_video": true,
+      "tracking_token": "eyJ2ZXJzaW9uIjo1LCJwYXlsb2FkIjp7ImlzX2FuYWx5dGljc190cmFja2VkIjp0cnVlLCJ1dWlkIjoiZGQxMWJiNGI4NmZlNGM3YThkZTc5ODhhZWMxNDFkNzcyMzQ2NDA0NTY4MDM1NzIyNjE3In0sInNpZ25hdHVyZSI6IiJ9",
+      "edge_media_to_tagged_user": { "edges": [] },
+      "edge_media_to_caption": {
+        "edges": [{ "node": { "text": "@weird.genius" } }]
+      },
+      "caption_is_edited": true,
+      "has_ranked_comments": false,
+      "edge_media_to_parent_comment": {
+        "count": 5,
+        "page_info": { "has_next_page": false, "end_cursor": null },
+        "edges": [
+          {
+            "node": {
+              "id": "17874551500751134",
+              "text": "Dahsyat sih ini",
+              "created_at": 1593941947,
+              "did_report_as_spam": false,
+              "owner": {
+                "id": "561652955",
+                "is_verified": false,
+                "profile_pic_url": "https://instagram.fcgk18-1.fna.fbcdn.net/v/t51.2885-19/s150x150/121023544_839164393557717_2157502630154010589_n.jpg?_nc_ht=instagram.fcgk18-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=qx6igt9MU8UAX9pmxxZ&tp=1&oh=1c6f0b76bf04a10b499e1e1745d9dd88&oe=5FE2949A",
+                "username": "rezafiansyah"
+              },
+              "viewer_has_liked": false,
+              "edge_liked_by": { "count": 1 },
+              "is_restricted_pending": false,
+              "edge_threaded_comments": {
+                "count": 1,
+                "page_info": { "has_next_page": false, "end_cursor": null },
+                "edges": [
+                  {
+                    "node": {
+                      "id": "17898821800516929",
+                      "text": "@rezafiansyah sabi aja Bang Reza \ud83d\ude02",
+                      "created_at": 1593943600,
+                      "did_report_as_spam": false,
+                      "owner": {
+                        "id": "37074598",
+                        "is_verified": false,
+                        "profile_pic_url": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-19/s150x150/123989180_1007091669783802_1606036759916212806_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=KIHMcW-8KQEAX88ztMf&tp=1&oh=486064c77554ba4ca1453b2a51e86ff0&oe=5FE57AA6",
+                        "username": "agustinusnathaniel"
+                      },
+                      "viewer_has_liked": false,
+                      "edge_liked_by": { "count": 0 },
+                      "is_restricted_pending": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "18149682703028956",
+              "text": "Kirain Eka Gustiwana",
+              "created_at": 1593948627,
+              "did_report_as_spam": false,
+              "owner": {
+                "id": "845464670",
+                "is_verified": false,
+                "profile_pic_url": "https://instagram.fcgk18-1.fna.fbcdn.net/v/t51.2885-19/11352930_470989943075425_1888385150_a.jpg?_nc_ht=instagram.fcgk18-1.fna.fbcdn.net&_nc_cat=101&_nc_ohc=rvp2vSiTzY8AX-jtPHK&oh=297fdfc80c3b4a7ab21b4eee0ad11b4e&oe=5FE2FF10",
+                "username": "priciliangelo"
+              },
+              "viewer_has_liked": false,
+              "edge_liked_by": { "count": 1 },
+              "is_restricted_pending": false,
+              "edge_threaded_comments": {
+                "count": 1,
+                "page_info": { "has_next_page": false, "end_cursor": null },
+                "edges": [
+                  {
+                    "node": {
+                      "id": "17862988534935196",
+                      "text": "@priciliangelo \ud83d\ude02 wadu jauh saya",
+                      "created_at": 1593953168,
+                      "did_report_as_spam": false,
+                      "owner": {
+                        "id": "37074598",
+                        "is_verified": false,
+                        "profile_pic_url": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-19/s150x150/123989180_1007091669783802_1606036759916212806_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=KIHMcW-8KQEAX88ztMf&tp=1&oh=486064c77554ba4ca1453b2a51e86ff0&oe=5FE57AA6",
+                        "username": "agustinusnathaniel"
+                      },
+                      "viewer_has_liked": false,
+                      "edge_liked_by": { "count": 0 },
+                      "is_restricted_pending": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "17859258545013665",
+              "text": "Bang buat gua bang gitarnya",
+              "created_at": 1594045176,
+              "did_report_as_spam": false,
+              "owner": {
+                "id": "1767312006",
+                "is_verified": false,
+                "profile_pic_url": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-19/s150x150/47693657_381314112442006_2553934931709394944_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=cszx8kKA_50AX8kQU9v&tp=1&oh=14d561a6747272a2a14f617402cc199d&oe=5FE30308",
+                "username": "septariadn"
+              },
+              "viewer_has_liked": false,
+              "edge_liked_by": { "count": 1 },
+              "is_restricted_pending": false,
+              "edge_threaded_comments": {
+                "count": 0,
+                "page_info": { "has_next_page": false, "end_cursor": null },
+                "edges": []
+              }
+            }
+          }
+        ]
+      },
+      "edge_media_to_hoisted_comment": { "edges": [] },
+      "edge_media_preview_comment": {
+        "count": 5,
+        "edges": [
+          {
+            "node": {
+              "id": "17862988534935196",
+              "text": "@priciliangelo \ud83d\ude02 wadu jauh saya",
+              "created_at": 1593953168,
+              "did_report_as_spam": false,
+              "owner": {
+                "id": "37074598",
+                "is_verified": false,
+                "profile_pic_url": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-19/s150x150/123989180_1007091669783802_1606036759916212806_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=KIHMcW-8KQEAX88ztMf&tp=1&oh=486064c77554ba4ca1453b2a51e86ff0&oe=5FE57AA6",
+                "username": "agustinusnathaniel"
+              },
+              "viewer_has_liked": false,
+              "edge_liked_by": { "count": 0 },
+              "is_restricted_pending": false
+            }
+          },
+          {
+            "node": {
+              "id": "17859258545013665",
+              "text": "Bang buat gua bang gitarnya",
+              "created_at": 1594045176,
+              "did_report_as_spam": false,
+              "owner": {
+                "id": "1767312006",
+                "is_verified": false,
+                "profile_pic_url": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-19/s150x150/47693657_381314112442006_2553934931709394944_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=cszx8kKA_50AX8kQU9v&tp=1&oh=14d561a6747272a2a14f617402cc199d&oe=5FE30308",
+                "username": "septariadn"
+              },
+              "viewer_has_liked": false,
+              "edge_liked_by": { "count": 1 },
+              "is_restricted_pending": false
+            }
+          }
+        ]
+      },
+      "comments_disabled": false,
+      "commenting_disabled_for_viewer": false,
+      "taken_at_timestamp": 1593933709,
+      "edge_media_preview_like": { "count": 62, "edges": [] },
+      "edge_media_to_sponsor_user": { "edges": [] },
+      "location": null,
+      "viewer_has_liked": false,
+      "viewer_has_saved": false,
+      "viewer_has_saved_to_collection": false,
+      "viewer_in_photo_of_you": false,
+      "viewer_can_reshare": true,
+      "owner": {
+        "id": "37074598",
+        "is_verified": false,
+        "profile_pic_url": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-19/s150x150/123989180_1007091669783802_1606036759916212806_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=110&_nc_ohc=KIHMcW-8KQEAX88ztMf&tp=1&oh=486064c77554ba4ca1453b2a51e86ff0&oe=5FE57AA6",
+        "username": "agustinusnathaniel",
+        "blocked_by_viewer": false,
+        "restricted_by_viewer": null,
+        "followed_by_viewer": false,
+        "full_name": "",
+        "has_blocked_viewer": false,
+        "is_private": false,
+        "is_unpublished": false,
+        "requested_by_viewer": false,
+        "pass_tiering_recommendation": false,
+        "edge_owner_to_timeline_media": { "count": 171 },
+        "edge_followed_by": { "count": 807 }
+      },
+      "is_ad": false,
+      "edge_web_media_to_related_media": { "edges": [] },
+      "encoding_status": null,
+      "is_published": true,
+      "product_type": "igtv",
+      "title": "LATHI (\ua9ad\ua99b\ua9b6)",
+      "video_duration": 150.932,
+      "thumbnail_src": "https://instagram.fcgk18-2.fna.fbcdn.net/v/t51.2885-15/e35/c0.150.540.540a/106282503_327621618234518_1443670734562159558_n.jpg?_nc_ht=instagram.fcgk18-2.fna.fbcdn.net&_nc_cat=102&_nc_ohc=F0YjG2SRIhAAX_xhZ7B&tp=1&oh=a0695c1d54ffd7e00800a9c7bc1097e7&oe=5FBC8DE1",
+      "clips_music_attribution_info": null,
+      "edge_related_profiles": { "edges": [] }
+    }
+  }
+}
