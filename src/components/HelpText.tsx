@@ -4,7 +4,6 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
-  Box,
   Heading,
   Text,
   useColorMode,
@@ -37,7 +36,7 @@ const HelpText = () => {
             you can just replace the link when you open instagram.
             <br />
             example: https://<b>www.instagram.com</b>/p/CGp0Y42HKkm/ replace it
-            into https://<b>instadl.sznm.dev</b>/p/CGp0Y42HKkm/ then open the
+            into https://instagram<b>dld.com</b>/p/CGp0Y42HKkm/ then open the
             link.
           </Text>
         </AccordionPanel>

@@ -1,5 +1,4 @@
 import { Box, Button, Heading, Image, Link, Text } from "@chakra-ui/react";
-import React from "react";
 
 export type MediaType = {
   url: string;
@@ -15,7 +14,7 @@ type GalleryProps = {
 
 const Gallery = ({ media, username, fullName }: GalleryProps) => {
   const handleClickDownload = (url: string) => (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    _: any
   ) => {
     window.location.assign(`${url}&dl=1`);
   };
