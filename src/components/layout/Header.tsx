@@ -1,13 +1,25 @@
-import { Flex, Heading, Box } from "@chakra-ui/react";
+import { Flex, Heading, Box, Icon, useColorMode } from "@chakra-ui/react";
+import { FaInstagram } from "react-icons/fa";
+import { BiCloudDownload } from "react-icons/bi";
 
 import AccessibleLink from "../AccessibleLink";
 import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
+  const { colorMode } = useColorMode();
+
   return (
     <Flex as="header" height={10} width="full" align="center">
       <AccessibleLink href="/">
-        <Heading as="h1">InstaDL</Heading>
+        <Heading
+          as="h1"
+          alignItems="center"
+          color={colorMode === "light" ? "blue.400" : "pink.500"}
+        >
+          <Icon as={FaInstagram} />
+          InstagramDLD
+          <Icon as={BiCloudDownload} />
+        </Heading>
       </AccessibleLink>
 
       <Box marginLeft="auto">

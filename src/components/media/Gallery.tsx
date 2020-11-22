@@ -1,4 +1,4 @@
-import { Box, Button, Image, Link } from "@chakra-ui/react";
+import { Box, Button, Heading, Image, Link, Text } from "@chakra-ui/react";
 import React from "react";
 
 export type MediaType = {
@@ -9,11 +9,31 @@ export type MediaType = {
 
 type GalleryProps = {
   media: MediaType[];
+  username: string;
+  fullName: string;
 };
 
-const Gallery = ({ media }: GalleryProps) => {
+const Gallery = ({ media, username, fullName }: GalleryProps) => {
+  const handleClickDownload = (url: string) => (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    window.location.assign(`${url}&dl=1`);
+  };
+
   return (
     <Box display={["block", "flex"]} flexWrap="wrap">
+      <Box marginTop={8} textAlign="center" width="100%">
+        <Heading size="sm" fontWeight="500">
+          Posted By:
+        </Heading>
+        {fullName && <Text fontSize="lg">{fullName}</Text>}
+        <Link href={`https://www.instagram.com/${username}`} isExternal>
+          <Text fontWeight="bold" fontSize="sm">
+            @{username}
+          </Text>
+        </Link>
+      </Box>
+
       {media.map(({ url, is_video }, mediaIndex) => {
         if (is_video) {
           return (
@@ -24,14 +44,18 @@ const Gallery = ({ media }: GalleryProps) => {
               padding={[0, 4]}
             >
               <Box marginBottom={2}>
-                <video controls style={{ borderRadius: "1rem" }}>
+                <video controls style={{ borderRadius: "1rem", width: "100%" }}>
                   <source src={url} type="video/mp4" />
                 </video>
               </Box>
 
-              <Link href={`${url}&dl=1`} download>
-                <Button isFullWidth>Download Video</Button>
-              </Link>
+              <Button
+                colorScheme="blue"
+                onClick={handleClickDownload(url)}
+                isFullWidth
+              >
+                Download Video
+              </Button>
             </Box>
           );
         } else {
@@ -46,7 +70,8 @@ const Gallery = ({ media }: GalleryProps) => {
 
               <Button
                 isFullWidth
-                onClick={() => window.location.assign(`${url}&dl=1`)}
+                colorScheme="orange"
+                onClick={handleClickDownload(url)}
               >
                 Download Image
               </Button>

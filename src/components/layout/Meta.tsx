@@ -3,7 +3,7 @@ import Head from "next/head";
 const Meta = () => {
   return (
     <Head>
-      <title>InstaDL</title>
+      <title>InstagramDLD</title>
     </Head>
   );
 };

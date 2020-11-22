@@ -4,6 +4,7 @@ import {
   FormControl,
   FormHelperText,
   FormLabel,
+  Heading,
   Input,
   Spinner,
   Text,
@@ -25,6 +26,8 @@ const Form = () => {
   const [errorDL, setErrorDL] = useState<boolean>(false);
 
   const [media, setMedia] = useState<Array<MediaType>>();
+  const [username, setUsername] = useState<string>("");
+  const [fullName, setFullName] = useState<string>("");
 
   const { values, handleSubmit, errors, handleChange, dirty } = useFormik<
     FormType
@@ -52,6 +55,7 @@ const Form = () => {
     onSubmit: async (formValue: FormType) => {
       setErrorDL(false);
       setLoading(true);
+      setMedia(null);
       // const strippedLink = formValue.link.split("/");
       // const postIdIndex = strippedLink.indexOf("p") + 1;
       // const postId = strippedLink[postIdIndex];
@@ -64,11 +68,16 @@ const Form = () => {
       setLoading(false);
 
       if (fetchedData) {
-        // window.location.assign(
-        //   `${fetchedData.graphql.shortcode_media.display_url}&dl=1`
-        // );
-        if (fetchedData.graphql.shortcode_media.edge_sidecar_to_children) {
-          const medias: MediaType[] = fetchedData.graphql.shortcode_media.edge_sidecar_to_children.edges.map(
+        const {
+          edge_sidecar_to_children,
+          owner,
+          display_resources,
+          is_video,
+          video_url,
+        } = fetchedData.graphql.shortcode_media;
+
+        if (edge_sidecar_to_children) {
+          const medias: MediaType[] = edge_sidecar_to_children.edges.map(
             (edge) => ({
               url: edge.node.is_video
                 ? edge.node.video_url
@@ -79,33 +88,32 @@ const Form = () => {
           );
           setMedia(medias);
         } else {
-          const updateMedia: MediaType[] = fetchedData.graphql.shortcode_media
-            .is_video
+          const updateMedia: MediaType[] = is_video
             ? [
                 {
-                  url: fetchedData.graphql.shortcode_media.video_url,
-                  is_video: fetchedData.graphql.shortcode_media.is_video,
+                  url: video_url,
+                  is_video,
                   restricted: false,
                 },
               ]
             : [
                 {
-                  url:
-                    fetchedData.graphql.shortcode_media.display_resources[2]
-                      .src,
-                  is_video: fetchedData.graphql.shortcode_media.is_video,
+                  url: display_resources[2].src,
+                  is_video,
                   restricted: false,
                 },
               ];
-
           setMedia(updateMedia);
         }
+
+        setUsername(owner.username);
+        setFullName(owner.full_name);
       }
     },
   });
 
   return (
-    <Box>
+    <Box width="100%" alignSelf="center">
       {console.log(values)}
       <FormControl isRequired>
         <FormLabel textAlign="center">Input Instagram Post Link</FormLabel>
@@ -136,13 +144,20 @@ const Form = () => {
       </Button>
 
       {loading && (
-        <Box textAlign="center">
-          <Spinner size="lg" />
+        <Box textAlign="center" marginY={4}>
+          <Heading size="md">Please Wait...</Heading>
+          <Spinner size="xl" thickness="0.5rem" />
         </Box>
       )}
-      {errorDL && <Text textAlign="center">Wrong Link</Text>}
+      {errorDL && (
+        <Text marginY={4} fontSize="lg" textAlign="center" color="red.500">
+          Invalid Link
+        </Text>
+      )}
 
-      {media && <Gallery media={media} />}
+      {media && (
+        <Gallery media={media} username={username} fullName={fullName} />
+      )}
     </Box>
   );
 };

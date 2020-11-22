@@ -1,14 +1,14 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Form from "../components/form";
 import HelpText from "../components/HelpText";
 
 const Home = () => {
   return (
-    <Box mb={8} w="full">
+    <Flex flexWrap="wrap" mb={8} height="100%" width="100%">
       <Form />
 
       <HelpText />
-    </Box>
+    </Flex>
   );
 };
 

@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const PostID = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default PostID
+export default PostID;
