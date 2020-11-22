@@ -41,31 +41,31 @@ const Gallery = ({ media, username, fullName }: GalleryProps) => {
               flexBasis={["100%", media.length > 1 ? "50%" : "100%"]}
               padding={[0, 4]}
             >
-              <Box>
-                <video
-                  controls
-                  style={{
-                    borderRadius: "1rem",
-                    borderBottomLeftRadius: 0,
-                    borderBottomRightRadius: 0,
-                    width: "100%",
-                  }}
-                >
-                  <source src={url} type="video/mp4" />
-                </video>
-              </Box>
-
               <Button
                 colorScheme="blue"
                 borderRadius={16}
-                borderTopLeftRadius={0}
-                borderTopRightRadius={0}
+                borderBottomLeftRadius={0}
+                borderBottomRightRadius={0}
                 onClick={handleClickDownload(url)}
                 isFullWidth
                 leftIcon={<HiDownload />}
               >
                 Download Video
               </Button>
+
+              <Box>
+                <video
+                  controls
+                  style={{
+                    borderRadius: "1rem",
+                    borderTopLeftRadius: 0,
+                    borderTopRightRadius: 0,
+                    width: "100%",
+                  }}
+                >
+                  <source src={url} type="video/mp4" />
+                </video>
+              </Box>
             </Box>
           );
         } else {
@@ -77,18 +77,10 @@ const Gallery = ({ media, username, fullName }: GalleryProps) => {
               padding={[0, 4]}
               marginX={["inherit", "auto"]}
             >
-              <Image
-                maxHeight={["50%", "100%"]}
-                src={url}
-                borderRadius={"1rem"}
-                borderBottomLeftRadius={0}
-                borderBottomRightRadius={0}
-              />
-
               <Button
                 borderRadius={16}
-                borderTopLeftRadius={0}
-                borderTopRightRadius={0}
+                borderBottomLeftRadius={0}
+                borderBottomRightRadius={0}
                 isFullWidth
                 colorScheme="orange"
                 onClick={handleClickDownload(url)}
@@ -96,6 +88,14 @@ const Gallery = ({ media, username, fullName }: GalleryProps) => {
               >
                 Download Image
               </Button>
+
+              <Image
+                maxHeight={["50%", "100%"]}
+                src={url}
+                borderRadius={"1rem"}
+                borderTopLeftRadius={0}
+                borderTopRightRadius={0}
+              />
             </Box>
           );
         }

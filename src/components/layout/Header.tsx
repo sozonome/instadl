@@ -1,5 +1,4 @@
 import { Flex, Heading, Box, Icon, useColorMode } from "@chakra-ui/react";
-import { FaInstagram } from "react-icons/fa";
 import { BiCloudDownload } from "react-icons/bi";
 
 import AccessibleLink from "../AccessibleLink";
