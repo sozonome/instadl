@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  color,
   FormControl,
   FormHelperText,
   FormLabel,
@@ -8,6 +9,7 @@ import {
   Input,
   Spinner,
   Text,
+  useColorMode,
 } from "@chakra-ui/react";
 import { FormikErrors, useFormik } from "formik";
 import { useState } from "react";
@@ -29,9 +31,15 @@ const Form = () => {
   const [username, setUsername] = useState<string>("");
   const [fullName, setFullName] = useState<string>("");
 
-  const { values, handleSubmit, errors, handleChange, dirty } = useFormik<
-    FormType
-  >({
+  const { colorMode } = useColorMode();
+
+  const {
+    values,
+    handleSubmit,
+    errors,
+    handleChange,
+    dirty,
+  } = useFormik<FormType>({
     initialValues: {
       link: "",
     },
@@ -56,9 +64,6 @@ const Form = () => {
       setErrorDL(false);
       setLoading(true);
       setMedia(null);
-      // const strippedLink = formValue.link.split("/");
-      // const postIdIndex = strippedLink.indexOf("p") + 1;
-      // const postId = strippedLink[postIdIndex];
 
       const fetchedData = await axios
         .get(`${formValue.link}?__a=1`)
@@ -114,17 +119,18 @@ const Form = () => {
 
   return (
     <Box width="100%" alignSelf="center">
-      {console.log(values)}
       <FormControl isRequired>
-        <FormLabel textAlign="center">Input Instagram Post Link</FormLabel>
+        <FormLabel textAlign="center">Instagram Post URL</FormLabel>
         <Input
           placeholder="https://www.instagram.com/p/CGp0Y42HKkm/"
           textAlign="center"
           variant="filled"
-          colorScheme="green"
+          backgroundColor={colorMode === "light" ? "gray.200" : "gray.700"}
           name="link"
           value={values.link}
           onChange={handleChange}
+          borderRadius={32}
+          height={"3.5rem"}
         />
         {errors.link && (
           <FormHelperText textAlign="center" color="red.400">

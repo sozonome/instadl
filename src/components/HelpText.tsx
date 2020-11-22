@@ -4,6 +4,7 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
+  Code,
   Heading,
   Text,
   useColorMode,
@@ -14,7 +15,8 @@ const HelpText = () => {
   return (
     <Accordion
       alignSelf="flex-end"
-      width="100%"
+      width={["100%", "60%"]}
+      marginX={"auto"}
       allowToggle
       marginY={4}
       padding={8}
@@ -25,20 +27,29 @@ const HelpText = () => {
     >
       <AccordionItem>
         <AccordionButton>
-          <Heading flex="1" textAlign="left" size="md">
+          <Heading flex="1" textAlign="left" size="sm">
             Some other Hacks
           </Heading>
 
           <AccordionIcon />
         </AccordionButton>
-        <AccordionPanel>
-          <Text fontSize="xs">
-            you can just replace the link when you open instagram.
-            <br />
-            example: https://<b>www.instagram.com</b>/p/CGp0Y42HKkm/ replace it
-            into https://instagram<b>dld.com</b>/p/CGp0Y42HKkm/ then open the
-            link.
+        <AccordionPanel fontSize="xs">
+          <Text>
+            You can just edit the link in your browser address when you open
+            instagram.
           </Text>
+          <Text marginTop={2}>example:</Text>
+          <Code wordBreak="break-word">
+            https://www.<b>instagram</b>.com/p/CGp0Y42HKkm/
+          </Code>
+          <Text marginY={2}>
+            just add <Code>dld</Code> after <Code>instagram</Code>:
+          </Text>
+          <Code wordBreak="break-word">
+            https://www.instagram<b>dld</b>
+            .com/p/CGp0Y42HKkm/
+          </Code>
+          <Text>then open the link.</Text>
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

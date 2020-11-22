@@ -1,4 +1,5 @@
 import { Box, Button, Heading, Image, Link, Text } from "@chakra-ui/react";
+import { HiDownload } from "react-icons/hi";
 
 export type MediaType = {
   url: string;
@@ -13,9 +14,7 @@ type GalleryProps = {
 };
 
 const Gallery = ({ media, username, fullName }: GalleryProps) => {
-  const handleClickDownload = (url: string) => (
-    _: any
-  ) => {
+  const handleClickDownload = (url: string) => (_: any) => {
     window.location.assign(`${url}&dl=1`);
   };
 
@@ -37,21 +36,33 @@ const Gallery = ({ media, username, fullName }: GalleryProps) => {
         if (is_video) {
           return (
             <Box
-              marginY={8}
+              marginY={2}
               key={mediaIndex}
               flexBasis={["100%", media.length > 1 ? "50%" : "100%"]}
               padding={[0, 4]}
             >
-              <Box marginBottom={2}>
-                <video controls style={{ borderRadius: "1rem", width: "100%" }}>
+              <Box>
+                <video
+                  controls
+                  style={{
+                    borderRadius: "1rem",
+                    borderBottomLeftRadius: 0,
+                    borderBottomRightRadius: 0,
+                    width: "100%",
+                  }}
+                >
                   <source src={url} type="video/mp4" />
                 </video>
               </Box>
 
               <Button
                 colorScheme="blue"
+                borderRadius={16}
+                borderTopLeftRadius={0}
+                borderTopRightRadius={0}
                 onClick={handleClickDownload(url)}
                 isFullWidth
+                leftIcon={<HiDownload />}
               >
                 Download Video
               </Button>
@@ -60,17 +71,28 @@ const Gallery = ({ media, username, fullName }: GalleryProps) => {
         } else {
           return (
             <Box
-              marginY={8}
+              marginY={2}
               key={mediaIndex}
-              flexBasis={["100%", media.length > 1 ? "50%" : "100%"]}
+              flexBasis={["100%", "50%"]}
               padding={[0, 4]}
+              marginX={["inherit", "auto"]}
             >
-              <Image src={url} marginBottom={2} borderRadius={"1rem"} />
+              <Image
+                maxHeight={["50%", "100%"]}
+                src={url}
+                borderRadius={"1rem"}
+                borderBottomLeftRadius={0}
+                borderBottomRightRadius={0}
+              />
 
               <Button
+                borderRadius={16}
+                borderTopLeftRadius={0}
+                borderTopRightRadius={0}
                 isFullWidth
                 colorScheme="orange"
                 onClick={handleClickDownload(url)}
+                leftIcon={<HiDownload />}
               >
                 Download Image
               </Button>
