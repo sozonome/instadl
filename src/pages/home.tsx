@@ -1,4 +1,5 @@
 import { Box, Heading, Text, useColorMode } from "@chakra-ui/react";
+import Head from "next/head";
 
 import HelpText from "../components/HelpText";
 
@@ -7,6 +8,9 @@ const Home = () => {
 
   return (
     <Box>
+      <Head>
+        <title>Instagram Downloader</title>
+      </Head>
       <Box
         padding={8}
         marginBottom={8}
