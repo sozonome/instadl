@@ -38,8 +38,10 @@ const Form = () => {
       const checkLinkStrings = formValues.link.split("/" || ".");
 
       if (
-        checkLinkStrings.indexOf("instagram.com") < 0 &&
-        checkLinkStrings.indexOf("www.instagram.com") < 0
+        (checkLinkStrings.indexOf("instagram.com") < 0 &&
+          checkLinkStrings.indexOf("www.instagram.com") < 0) ||
+        formValues.link.includes("script") ||
+        formValues.link.includes("iframe")
       ) {
         formErrors.link = "invalid link";
       }
