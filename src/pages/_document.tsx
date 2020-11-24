@@ -1,8 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-const APP_NAME = "next-app-chakra-ts";
+const APP_NAME = "InstagramDLD";
 const APP_DESCRIPTION =
-  "Next.js app template with Chakra-UI, TypeScript, and PWA configured";
+  "Your Instagram post downloader. Just add three letters.";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
