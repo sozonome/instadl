@@ -36,9 +36,8 @@ const HelpText = () => {
         <AccordionPanel fontSize="xs">
           <Text>
             If you are on laptop / desktop, <br />
-            you can just edit the link in your browser address when you open
-            instagram to download.
           </Text>
+          <Heading size="md">just add three letters!</Heading>
           <Text marginTop={2}>example:</Text>
           <Code wordBreak="break-word">
             https://www.<b>instagram</b>.com/p/CGp0Y42HKkm/
