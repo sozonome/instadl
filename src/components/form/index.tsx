@@ -3,7 +3,6 @@ import {
   Button,
   FormControl,
   FormHelperText,
-  FormLabel,
   Input,
   useColorMode,
 } from "@chakra-ui/react";
@@ -58,9 +57,8 @@ const Form = () => {
   });
 
   return (
-    <Box width="100%" alignSelf="center">
+    <Box margin="0 auto" width={["100%", "100%", "70%"]} alignSelf="center">
       <FormControl isRequired>
-        <FormLabel textAlign="center">Instagram Post URL</FormLabel>
         <Input
           placeholder="https://www.instagram.com/p/CGp0Y42HKkm/"
           textAlign="center"
@@ -80,10 +78,15 @@ const Form = () => {
       </FormControl>
 
       <Button
-        disabled={!dirty || (dirty && Object.keys(errors).length > 0)}
+        disabled={
+          !dirty ||
+          (dirty && Object.keys(errors).length > 0) ||
+          postURL === values.link
+        }
         isFullWidth
-        colorScheme="teal"
+        colorScheme={colorMode === "light" ? "teal" : "purple"}
         marginY={2}
+        borderRadius={"2rem"}
         onClick={() => handleSubmit()}
       >
         Download

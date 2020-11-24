@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Flex,
-  Heading,
   Link,
   Modal,
   ModalBody,
@@ -13,7 +12,6 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { BiMailSend } from "react-icons/bi";
 import SupportText from "../SupportText";
 
 const Footer = () => {
@@ -26,14 +24,19 @@ const Footer = () => {
       align="center"
       alignSelf="flex-end"
     >
-      <Box width="full" textAlign="center">
-        <Text width="full">
+      <Box
+        display={["block", "flex"]}
+        width="full"
+        alignItems="center"
+        textAlign={["center", "inherit"]}
+      >
+        <Text width={["full", "auto"]}>
           2020 -{" "}
           <Link href="https://sznm.dev" isExternal>
             sznm.dev
           </Link>
         </Text>
-        <Button size="sm" onClick={onOpen}>
+        <Button size="sm" onClick={onOpen} marginLeft={["inherit", "auto"]}>
           Support
         </Button>
       </Box>

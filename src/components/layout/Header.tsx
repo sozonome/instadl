@@ -11,9 +11,10 @@ const Header = () => {
     <Flex as="header" height={10} width="full" align="center">
       <AccessibleLink href="/">
         <Heading
-          as="h1"
+          as="h2"
+          fontSize={["md", "2xl"]}
           alignItems="center"
-          color={colorMode === "light" ? "blue.400" : "pink.500"}
+          color={colorMode === "light" ? "blue.700" : "pink.500"}
         >
           InstagramDLD
           <Icon as={BiCloudDownload} />

@@ -1,5 +1,4 @@
 import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/react";
-import React from "react";
 import { BiMailSend } from "react-icons/bi";
 
 const SupportText = () => {

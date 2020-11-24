@@ -3,12 +3,13 @@ import { Box, Flex, useColorMode } from "@chakra-ui/react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Meta from "./Meta";
+import TermsAndPolicy from "../TermsAndPolicy";
 
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box backgroundColor={colorMode === "light" ? "orange.50" : "gray.900"}>
+    <Box backgroundColor={colorMode === "light" ? "gray.100" : "gray.900"}>
       <Meta />
       <Flex
         margin="0 auto"
@@ -23,6 +24,8 @@ const Layout = ({ children }) => {
         </Box>
         <Footer />
       </Flex>
+
+      <TermsAndPolicy />
     </Box>
   );
 };

@@ -15,10 +15,10 @@ const HelpText = () => {
   return (
     <Accordion
       alignSelf="flex-end"
-      width={["100%", "60%"]}
-      marginX={"auto"}
+      // width={["100%", "60%"]}
+      // marginX={"auto"}
       allowToggle
-      marginY={4}
+      // marginY={4}
       padding={8}
       backgroundColor={colorMode === "light" ? "white" : "blue.800"}
       borderRadius="1.5rem"
@@ -28,15 +28,16 @@ const HelpText = () => {
       <AccordionItem>
         <AccordionButton>
           <Heading flex="1" textAlign="left" size="sm">
-            Some other Hacks
+            Why is it so easy & efficient?
           </Heading>
 
           <AccordionIcon />
         </AccordionButton>
         <AccordionPanel fontSize="xs">
           <Text>
-            You can just edit the link in your browser address when you open
-            instagram.
+            If you are on laptop / desktop, <br />
+            you can just edit the link in your browser address when you open
+            instagram to download.
           </Text>
           <Text marginTop={2}>example:</Text>
           <Code wordBreak="break-word">
@@ -49,7 +50,7 @@ const HelpText = () => {
             https://www.instagram<b>dld</b>
             .com/p/CGp0Y42HKkm/
           </Code>
-          <Text>then open the link.</Text>
+          <Text>then hit enter.</Text>
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

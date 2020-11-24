@@ -3,19 +3,20 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import Gallery, { MediaType } from "../media/Gallery";
-import { RawResponseType } from "../../../types/rawResponseType";
+import { Owner, RawResponseType } from "../../../types/rawResponseType";
 
 type ProcessDownloadProps = {
   postURL: string;
 };
+
+type OwnerType = Pick<Owner, "full_name" | "username" | "profile_pic_url">;
 
 const ProcessDownload = ({ postURL }: ProcessDownloadProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [errorDL, setErrorDL] = useState<boolean>(false);
 
   const [media, setMedia] = useState<Array<MediaType>>();
-  const [username, setUsername] = useState<string>("");
-  const [fullName, setFullName] = useState<string>("");
+  const [owner, setOwner] = useState<OwnerType>();
 
   const getMedia = async () => {
     setErrorDL(false);
@@ -68,8 +69,11 @@ const ProcessDownload = ({ postURL }: ProcessDownloadProps) => {
         setMedia(updateMedia);
       }
 
-      setUsername(owner.username);
-      setFullName(owner.full_name);
+      setOwner({
+        full_name: owner.full_name,
+        username: owner.username,
+        profile_pic_url: owner.profile_pic_url,
+      });
     } else {
       setErrorDL(true);
     }
@@ -93,8 +97,13 @@ const ProcessDownload = ({ postURL }: ProcessDownloadProps) => {
         </Text>
       )}
 
-      {media && (
-        <Gallery media={media} username={username} fullName={fullName} />
+      {media && owner && (
+        <Gallery
+          media={media}
+          username={owner.username}
+          fullName={owner.full_name}
+          profilePicUrl={owner.profile_pic_url}
+        />
       )}
     </>
   );
