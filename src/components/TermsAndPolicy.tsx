@@ -20,13 +20,23 @@ const TermsAndPolicy = () => {
   useEffect(() => {
     if (!JSON.parse(localStorage.getItem("notFirstVisit"))) {
       onOpen();
-      localStorage.setItem("notFirstVisit", JSON.stringify(true));
     }
   }, []);
 
+  const handleClose = () => {
+    localStorage.setItem("notFirstVisit", JSON.stringify(true));
+    onClose();
+  };
+
   return (
     <>
-      <Modal size={"xl"} isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal
+        closeOnOverlayClick={false}
+        size={"xl"}
+        isOpen={isOpen}
+        onClose={onClose}
+        isCentered
+      >
         <ModalOverlay />
 
         <ModalContent>
@@ -64,7 +74,7 @@ const TermsAndPolicy = () => {
 
           <ModalFooter>
             <Button
-              onClick={onClose}
+              onClick={handleClose}
               isFullWidth
               colorScheme={colorMode === "light" ? "green" : "teal"}
             >
