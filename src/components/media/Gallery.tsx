@@ -41,7 +41,12 @@ const Gallery = ({
               marginY={2}
               key={mediaIndex}
               flexBasis={["100%", media.length > 1 ? "50%" : "100%"]}
-              padding={[0, 4]}
+              _even={{
+                paddingLeft: [0, 2],
+              }}
+              _odd={{
+                paddingRight: [0, 2],
+              }}
             >
               <Button
                 colorScheme="blue"

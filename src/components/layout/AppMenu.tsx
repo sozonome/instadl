@@ -45,7 +45,12 @@ const AppMenu = () => {
 
   return (
     <>
-      <IconButton aria-label="app-menu" icon={<BiMenu />} onClick={onOpen} />
+      <IconButton
+        marginLeft={2}
+        aria-label="app-menu"
+        icon={<BiMenu />}
+        onClick={onOpen}
+      />
 
       <Drawer
         placement={isBiggerThanMobile ? "right" : "top"}
