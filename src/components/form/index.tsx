@@ -65,7 +65,7 @@ const Form = () => {
           placeholder="https://www.instagram.com/p/CGp0Y42HKkm/"
           textAlign="center"
           variant="filled"
-          backgroundColor={colorMode === "light" ? "gray.200" : "gray.700"}
+          backgroundColor={colorMode === "light" ? "gray.300" : "gray.700"}
           name="link"
           value={values.link}
           onChange={handleChange}
