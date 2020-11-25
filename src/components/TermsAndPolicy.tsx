@@ -54,8 +54,8 @@ const TermsAndPolicy = () => {
             </Heading>
             <Text marginBottom={4}>
               It is the enduser’s responsibility to credit the rightful owner of
-              the content. InstaDLD is not created to violate the copyright
-              at all.
+              the content. InstaDLD is not created to violate the copyright at
+              all.
             </Text>
 
             <Heading size="sm" marginBottom={2}>
@@ -67,9 +67,7 @@ const TermsAndPolicy = () => {
               permission.
             </Text>
 
-            <Text>
-              InstaDLD can not be held responsible for any misuse.
-            </Text>
+            <Text>InstaDLD can not be held responsible for any misuse.</Text>
           </ModalBody>
 
           <ModalFooter>
