@@ -17,6 +17,8 @@ const Meta = () => {
       <meta property="og:url" content="https://InstaDLD.com" />
       <meta property="og:site_name" content="InstaDLD" />
       {/* <meta property="og:image" content=""/> */}
+
+      <link rel="icon" href="/instadld.svg" />
     </Head>
   );
 };
