@@ -48,7 +48,7 @@ const SupportText = () => {
 
       <Box>
         <Text>Have some feedbacks or want to report problems?</Text>
-        <Link href="mailto:hello@sznm.dev?cc=agustinusnathaniel228@gmail.com&subject=InstagramDLD Feedback">
+        <Link href="mailto:hello@sznm.dev?cc=agustinusnathaniel228@gmail.com&subject=InstaDLD Feedback">
           <Button leftIcon={<BiMailSend />}>Mail Me</Button>
         </Link>
       </Box>

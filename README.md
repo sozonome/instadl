@@ -1,4 +1,4 @@
-# InstagramDLD
+# InstaDLD
 
 Instagram Post media downloader.
 

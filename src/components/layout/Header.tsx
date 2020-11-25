@@ -16,7 +16,7 @@ const Header = () => {
           alignItems="center"
           color={colorMode === "light" ? "blue.700" : "pink.500"}
         >
-          InstagramDLD
+          InstaDLD
           <Icon as={BiCloudDownload} />
         </Heading>
       </AccessibleLink>
