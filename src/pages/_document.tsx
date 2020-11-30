@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 const APP_NAME = "InstaDLD";
 const APP_DESCRIPTION =
-  "Your Instagram post downloader. Just add three letters.";
+  "Your Instagram post downloader.";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
