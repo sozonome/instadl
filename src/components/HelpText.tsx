@@ -15,10 +15,7 @@ const HelpText = () => {
   return (
     <Accordion
       alignSelf="flex-end"
-      // width={["100%", "60%"]}
-      // marginX={"auto"}
       allowToggle
-      // marginY={4}
       padding={8}
       backgroundColor={colorMode === "light" ? "white" : "blue.800"}
       borderRadius="1.5rem"

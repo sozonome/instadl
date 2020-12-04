@@ -9,7 +9,10 @@ const Layout = ({ children }) => {
   const { colorMode } = useColorMode();
 
   return (
-    <Box backgroundColor={colorMode === "light" ? "gray.100" : "gray.900"}>
+    <Box
+      backgroundColor={colorMode === "light" ? "gray.100" : "gray.900"}
+      transition="0.4s ease-out"
+    >
       <Meta />
       <Flex
         margin="0 auto"
