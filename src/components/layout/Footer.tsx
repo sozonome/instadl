@@ -32,7 +32,7 @@ const Footer = () => {
       >
         <Text width={["full", "auto"]}>
           2020 -{" "}
-          <Link href="https://sznm.dev" isExternal>
+          <Link href="https://sznm.dev" isExternal fontWeight="bold">
             sznm.dev
           </Link>
         </Text>

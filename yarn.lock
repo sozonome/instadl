@@ -3542,6 +3542,16 @@ follow-redirects@^1.10.0:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
   integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
 
+fontsource-inter@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/fontsource-inter/-/fontsource-inter-3.0.5.tgz#4d645514f61921f83034ff244985374413bd019d"
+  integrity sha512-7AGbrHVjL2IcIz/Lv64IR5g0W+JuGQT/bFFF5nDD1zNOT5Ke8IMIMc+tE4rb5fCVNG2AGt0gtXH3kGLUURKY8w==
+
+fontsource-rubik@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/fontsource-rubik/-/fontsource-rubik-3.0.10.tgz#03175eb808e9a6aa5f0e42089ad7224447cc1fe2"
+  integrity sha512-7wfwz0Wf8AWoSzWEmaqSt5yA0TQWpShPT4GL+CeIAuKV3G81eFbJK1jUsZnInFNu5Mt0hVXjXTpP5d6nVvROSg==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -6352,16 +6362,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typeface-inter@^1.1.13:
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/typeface-inter/-/typeface-inter-1.1.13.tgz#e6ce2acbfed8ae97f4c3f4b205b5cb26c9e24628"
-  integrity sha512-XHTUTR+qqsVAtr1mjJBu3f5q4e3q6PhuhLXJhQbRGKwqLrQmhC7dCoZ5n5Vd+dEmZvc3TdHhOEYfjI01xzM7HA==
-
-typeface-rubik@^1.1.13:
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/typeface-rubik/-/typeface-rubik-1.1.13.tgz#c01d40f05718590bc05d08ea404666a8ef56377a"
-  integrity sha512-mMWgn3bYfT6V4WWA3yvdEM3AkTA7iK1XwhlOX3+vWfqHc6O9I2RUsi9krEXzNdQ1UE/eoEFBRigMtu30PsdEDg==
 
 typescript@^3.9.7:
   version "3.9.7"
