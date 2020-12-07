@@ -18,13 +18,13 @@ const TermsAndPolicy = () => {
   const { colorMode } = useColorMode();
 
   useEffect(() => {
-    if (!JSON.parse(localStorage.getItem("notFirstVisit"))) {
+    if (!JSON.parse(localStorage.getItem("notFirstVisit-instadld"))) {
       onOpen();
     }
   }, []);
 
   const handleClose = () => {
-    localStorage.setItem("notFirstVisit", JSON.stringify(true));
+    localStorage.setItem("notFirstVisit-instadld", JSON.stringify(true));
     onClose();
   };
 
