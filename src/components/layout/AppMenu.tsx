@@ -37,6 +37,12 @@ const apps: AppsType[] = [
     icon: "https://addtocal.sznm.dev/add-to-calendar.svg",
     url: "https://addtocal.sznm.dev",
   },
+  {
+    name: "YTGet",
+    description: "YouTube video and audio downloader",
+    icon: "",
+    url: "https://ytget.sznm.dev",
+  },
 ];
 
 const AppMenu = () => {

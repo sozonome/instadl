@@ -14,7 +14,7 @@ const Meta = () => {
       />
       <meta name="author" content="sozonome" />
 
-      <meta property="og:url" content="https://InstaDLD.com" />
+      <meta property="og:url" content="https://instadld.sznm.dev" />
       <meta property="og:site_name" content="InstaDLD" />
       {/* <meta property="og:image" content=""/> */}
 
