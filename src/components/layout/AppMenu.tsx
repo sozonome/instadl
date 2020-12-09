@@ -40,7 +40,7 @@ const apps: AppsType[] = [
   {
     name: "YTGet",
     description: "YouTube video and audio downloader",
-    icon: "",
+    icon: "https://ytget.sznm.dev/ytget.svg",
     url: "https://ytget.sznm.dev",
   },
 ];
