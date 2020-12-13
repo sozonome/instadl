@@ -28,13 +28,13 @@ const apps: AppsType[] = [
   {
     name: "Covid-19 Data",
     description: "Monitor global covid-19 stats",
-    icon: "https://covid19.sznm.dev/covid-19-data.svg",
+    icon: "https://sznm.dev/app_icons/covid-19-data.svg",
     url: "https://covid19.sznm.dev",
   },
   {
     name: "Add to Calendar",
     description: "Add to Calendar link / button generator.",
-    icon: "https://addtocal.sznm.dev/add-to-calendar.svg",
+    icon: "https://sznm.dev/app_icons/add-to-calendar.svg",
     url: "https://addtocal.sznm.dev",
   },
 ];
