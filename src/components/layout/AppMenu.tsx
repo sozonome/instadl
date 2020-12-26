@@ -37,6 +37,12 @@ const apps: AppsType[] = [
     icon: "https://sznm.dev/app_icons/add-to-calendar.svg",
     url: "https://addtocal.sznm.dev",
   },
+  {
+    name: "Public APIs",
+    description: "Find public API for your next project.",
+    icon: "https://sznm.dev/app_icons/pub-apis.svg",
+    url: "https://publicapis.sznm.dev",
+  },
 ];
 
 const AppMenu = () => {
