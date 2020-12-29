@@ -13,10 +13,6 @@ import * as yup from "yup";
 
 import ProcessDownload from "./ProcessDownload";
 
-enum FormURLParams {
-  url = "url",
-}
-
 type FormType = {
   link: string;
 };
@@ -61,18 +57,20 @@ const Form = () => {
     },
   });
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const prefilledUrl = params.get(FormURLParams.url);
+  const router = useRouter();
+  const {
+    query: { url },
+  } = router;
 
-    if (prefilledUrl) {
+  useEffect(() => {
+    if (url) {
       new Promise((resolve) => {
-        resolve(setFieldValue("link", prefilledUrl));
+        resolve(setFieldValue("link", url));
       }).then(() => {
         handleSubmit();
       });
     }
-  }, []);
+  }, [url]);
 
   return (
     <Box margin="0 auto" width={["100%", "100%", "70%"]} alignSelf="center">
