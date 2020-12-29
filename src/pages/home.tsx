@@ -1,5 +1,6 @@
 import { Box, Heading, Text, useColorMode } from "@chakra-ui/react";
 import Head from "next/head";
+import HelpText from "../components/HelpText";
 
 const Home = () => {
   const { colorMode } = useColorMode();
@@ -29,6 +30,7 @@ const Home = () => {
         </Text>
         <Text>No ads, spam, and trackers!</Text>
       </Box>
+      <HelpText />
     </Box>
   );
 };

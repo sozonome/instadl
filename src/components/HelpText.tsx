@@ -25,7 +25,8 @@ const HelpText = () => {
       <AccordionItem>
         <AccordionButton>
           <Heading flex="1" textAlign="left" size="sm">
-            Why is it so easy & efficient?
+            {/* Why is it so easy & efficient? */}
+            Some Tips
           </Heading>
 
           <AccordionIcon />
@@ -34,17 +35,18 @@ const HelpText = () => {
           <Text>
             If you are on laptop / desktop, <br />
           </Text>
-          <Heading size="md">just add three letters!</Heading>
+          {/* <Heading size="md">just add three letters!</Heading> */}
           <Text marginTop={2}>example:</Text>
           <Code wordBreak="break-word">
             https://www.<b>instagram</b>.com/p/CGp0Y42HKkm/
           </Code>
           <Text marginY={2}>
-            just add <Code>dld</Code> after <Code>instagram</Code>:
+            just replace <Code>www.instagram.com</Code> with{" "}
+            <Code>instadld.sznm.dev</Code>:
           </Text>
           <Code wordBreak="break-word">
-            https://www.instagram<b>dld</b>
-            .com/p/CGp0Y42HKkm/
+            https://<b>instadld.sznm.dev</b>
+            /p/CGp0Y42HKkm/
           </Code>
           <Text>then hit enter.</Text>
         </AccordionPanel>

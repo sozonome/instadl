@@ -7,10 +7,15 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { FormikErrors, useFormik } from "formik";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import * as yup from "yup";
 
 import ProcessDownload from "./ProcessDownload";
+
+enum FormURLParams {
+  url = "url",
+}
 
 type FormType = {
   link: string;
@@ -24,10 +29,11 @@ const Form = () => {
 
   const {
     values,
-    handleSubmit,
     errors,
-    handleChange,
     dirty,
+    handleSubmit,
+    handleChange,
+    setFieldValue,
   } = useFormik<FormType>({
     initialValues: {
       link: "",
@@ -54,6 +60,19 @@ const Form = () => {
       setIsFetchingMedia(true);
     },
   });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const prefilledUrl = params.get(FormURLParams.url);
+
+    if (prefilledUrl) {
+      new Promise((resolve) => {
+        resolve(setFieldValue("link", prefilledUrl));
+      }).then(() => {
+        handleSubmit();
+      });
+    }
+  }, []);
 
   return (
     <Box margin="0 auto" width={["100%", "100%", "70%"]} alignSelf="center">
