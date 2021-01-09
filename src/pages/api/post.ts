@@ -4,7 +4,7 @@ import axios from "axios";
 import { RawResponseType } from "../../../types/rawResponseType";
 import { MediaType, OwnerType, PostRes } from "../../../types/post";
 
-const entry = async (req: NextApiRequest, res: NextApiResponse) => {
+const post = async (req: NextApiRequest, res: NextApiResponse) => {
   const {
     query: { url },
   } = req;
@@ -90,4 +90,10 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default entry;
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
+export default post;
