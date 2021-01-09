@@ -4,7 +4,8 @@ import axios from "axios";
 
 import Gallery from "../media/Gallery";
 
-import { PostRes } from "../../../types/post";
+import { MediaType, OwnerType, PostRes } from "../../../types/post";
+import { RawResponseType } from "../../../types/rawResponseType";
 
 type ProcessDownloadProps = {
   postURL: string;
@@ -22,16 +23,66 @@ const ProcessDownload = ({ postURL }: ProcessDownloadProps) => {
     setEntry(null);
 
     const fetchedData = await axios
-      .get(`/api/post`, { params: { url: postURL } })
-      .then((res) => res.data as PostRes)
+      .get(`${(postURL as string).split("?")[0]}`, { params: { __a: 1 } })
+      .then(
+        ({
+          data: {
+            graphql: { shortcode_media },
+          },
+        }: {
+          data: RawResponseType;
+        }) => {
+          const {
+            edge_sidecar_to_children,
+            owner: fetchedOwner,
+            display_resources,
+            is_video,
+            video_url,
+          } = shortcode_media;
+
+          let medias: MediaType[] = [];
+
+          if (edge_sidecar_to_children) {
+            medias = edge_sidecar_to_children.edges.map((edge) => ({
+              url: edge.node.is_video
+                ? edge.node.video_url
+                : edge.node.display_resources[2].src,
+              is_video: edge.node.is_video,
+            }));
+          } else {
+            medias = is_video
+              ? [
+                  {
+                    url: video_url,
+                    is_video,
+                  },
+                ]
+              : [
+                  {
+                    url: display_resources[2].src,
+                    is_video,
+                  },
+                ];
+          }
+
+          const owner: OwnerType = {
+            fullName: fetchedOwner.full_name,
+            username: fetchedOwner.username,
+            profilePicUrl: fetchedOwner.profile_pic_url,
+          };
+
+          return {
+            post: medias,
+            owner,
+          };
+        }
+      )
       .catch(() => setErrorDL(true));
 
     setLoading(false);
 
     if (fetchedData) {
       setEntry(fetchedData);
-    } else {
-      setErrorDL(true);
     }
   };
 
