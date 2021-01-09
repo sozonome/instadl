@@ -1,7 +1,15 @@
+import Cors from "cors";
 import { NextApiRequest, NextApiResponse } from "next";
 
 import { RawResponseType } from "../../../types/rawResponseType";
 import { MediaType, OwnerType, PostRes } from "../../../types/post";
+import initMiddleware from "../../libs/init-middleware";
+
+const cors = initMiddleware(
+  Cors({
+    methods: ["GET"],
+  })
+);
 
 const entry = async (req: NextApiRequest, res: NextApiResponse) => {
   const {
@@ -13,7 +21,7 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
   if (url) {
     await fetch(`${(url as string).split("?")[0]}?__a=1`)
       .then((response) => response.json())
-      .then(({ graphql: { shortcode_media } }: RawResponseType) => {
+      .then(async ({ graphql: { shortcode_media } }: RawResponseType) => {
         const {
           edge_sidecar_to_children,
           owner: fetchedOwner,
@@ -58,14 +66,19 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
           owner,
         };
 
+        await cors(req, res);
+
         res.status(200).json(result);
       })
-      .catch(() => {
+      .catch(async () => {
+        await cors(req, res);
         res.status(404).json({
           message: "Not found.",
         });
       });
   } else {
+    await cors(req, res);
+
     res.status(500).json({
       message: "Error.",
     });
