@@ -12,8 +12,8 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
   let result: PostRes;
 
   if (url) {
-    await axios
-      .get(`${(url as string).split("?")[0]}?__a=1`)
+    return await axios
+      .get(`${(url as string).split("?")[0]}`, { params: { __a: 1 } })
       .then(
         ({
           data: {
@@ -66,19 +66,16 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
             owner,
           };
 
-          res.statusCode = 200;
-          res.json(result);
+          res.status(200).json(result);
         }
       )
       .catch(() => {
-        res.statusCode = 404;
-        res.json({
+        res.status(404).json({
           message: "Not found.",
         });
       });
   } else {
-    res.statusCode = 500;
-    res.json({
+    res.status(500).json({
       message: "Error.",
     });
   }

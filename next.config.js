@@ -15,4 +15,5 @@ module.exports = withPWA({
   images: {
     domains: ["api.producthunt.com"],
   },
+  target: "server"
 });
