@@ -2,6 +2,7 @@ import {
   Avatar,
   Box,
   Button,
+  Grid,
   Heading,
   Image,
   Link,
@@ -9,45 +10,28 @@ import {
 } from "@chakra-ui/react";
 import { HiDownload } from "react-icons/hi";
 
-export type MediaType = {
-  url: string;
-  is_video: boolean;
-  restricted: boolean;
-};
+import { PostRes } from "../../../types/post";
 
 type GalleryProps = {
-  media: MediaType[];
-  username: string;
-  fullName: string;
-  profilePicUrl: string;
+  entry: PostRes;
 };
 
 const Gallery = ({
-  media,
-  username,
-  fullName,
-  profilePicUrl,
+  entry: {
+    post,
+    owner: { fullName, username, profilePicUrl },
+  },
 }: GalleryProps) => {
   const handleClickDownload = (url: string) => (_: any) => {
     window.location.assign(`${url}&dl=1`);
   };
 
   return (
-    <Box display={["block", "flex"]} flexWrap="wrap">
-      {media.map(({ url, is_video }, mediaIndex) => {
+    <Grid marginY={8} gap={8} templateColumns={["repeat(1)", "repeat(2, 1fr)"]}>
+      {post.map(({ url, is_video }, postIndex) => {
         if (is_video) {
           return (
-            <Box
-              marginY={2}
-              key={mediaIndex}
-              flexBasis={["100%", media.length > 1 ? "50%" : "100%"]}
-              _even={{
-                paddingLeft: [0, 2],
-              }}
-              _odd={{
-                paddingRight: [0, 2],
-              }}
-            >
+            <Box key={postIndex}>
               <Button
                 colorScheme="blue"
                 borderRadius={16}
@@ -77,18 +61,7 @@ const Gallery = ({
           );
         } else {
           return (
-            <Box
-              marginY={2}
-              key={mediaIndex}
-              flexBasis={["100%", "50%"]}
-              _even={{
-                paddingLeft: [0, 2],
-              }}
-              _odd={{
-                paddingRight: [0, 2],
-              }}
-              marginX={["inherit", "auto"]}
-            >
+            <Box key={postIndex}>
               <Button
                 borderRadius={16}
                 borderBottomLeftRadius={0}
@@ -102,7 +75,6 @@ const Gallery = ({
               </Button>
 
               <Image
-                maxHeight={["50%", "100%"]}
                 src={url}
                 borderRadius={"1rem"}
                 borderTopLeftRadius={0}
@@ -113,7 +85,7 @@ const Gallery = ({
         }
       })}
 
-      <Box marginTop={8} width="100%">
+      <Box>
         <Heading
           colorScheme="gray"
           as="span"
@@ -140,7 +112,7 @@ const Gallery = ({
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Grid>
   );
 };
 
