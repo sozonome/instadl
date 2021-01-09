@@ -9,9 +9,7 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
     query: { url },
   } = req;
 
-  let status: number;
   let result: PostRes;
-  let errors: any;
 
   if (url) {
     await axios
@@ -67,24 +65,17 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
             post: medias,
             owner,
           };
-          status = 200;
+
+          res.statusCode = 200;
+          res.json(result);
         }
       )
-      .catch((err) => {
-        status = 404;
-        errors = err;
+      .catch(() => {
+        res.statusCode = 404;
+        res.json({
+          message: "Not found.",
+        });
       });
-  }
-
-  if (status === 200) {
-    res.statusCode = status;
-    res.json(result);
-  } else if (status === 404) {
-    res.statusCode = status;
-    res.json({
-      message: "Not found.",
-      errors,
-    });
   } else {
     res.statusCode = 500;
     res.json({
