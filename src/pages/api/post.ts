@@ -18,10 +18,12 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
 
   let result: PostRes;
 
+  await cors(req, res);
+
   if (url) {
     await fetch(`${(url as string).split("?")[0]}?__a=1`)
       .then((response) => response.json())
-      .then(async ({ graphql: { shortcode_media } }: RawResponseType) => {
+      .then(({ graphql: { shortcode_media } }: RawResponseType) => {
         const {
           edge_sidecar_to_children,
           owner: fetchedOwner,
@@ -66,19 +68,14 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
           owner,
         };
 
-        await cors(req, res);
-
         res.status(200).json(result);
       })
-      .catch(async () => {
-        await cors(req, res);
+      .catch(() => {
         res.status(404).json({
           message: "Not found.",
         });
       });
   } else {
-    await cors(req, res);
-
     res.status(500).json({
       message: "Error.",
     });
