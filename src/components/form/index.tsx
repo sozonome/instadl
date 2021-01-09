@@ -18,7 +18,6 @@ type FormType = {
 };
 
 const Form = () => {
-  const [isFetchingMedia, setIsFetchingMedia] = useState<boolean>();
   const [postURL, setPostURL] = useState<string>("");
 
   const { colorMode } = useColorMode();
@@ -51,9 +50,7 @@ const Form = () => {
       link: yup.string().required(),
     }),
     onSubmit: (formValues: FormType) => {
-      setIsFetchingMedia(false);
       setPostURL(formValues.link);
-      setIsFetchingMedia(true);
     },
   });
 
@@ -108,7 +105,7 @@ const Form = () => {
         Download
       </Button>
 
-      {isFetchingMedia && <ProcessDownload postURL={postURL} />}
+      {postURL && <ProcessDownload postURL={postURL} />}
     </Box>
   );
 };
