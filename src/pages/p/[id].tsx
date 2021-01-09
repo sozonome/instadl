@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 import ProcessDownload from "../../components/form/ProcessDownload";
@@ -7,7 +8,9 @@ const PostID = () => {
   const { id } = router.query;
 
   return (
-    <>{id && <ProcessDownload postURL={`https://instagram.com/p/${id}`} />}</>
+    <Box margin="0 auto" width={["100%", "100%", "80%"]} alignSelf="center">
+      {id && <ProcessDownload postURL={`https://instagram.com/p/${id}`} />}
+    </Box>
   );
 };
 

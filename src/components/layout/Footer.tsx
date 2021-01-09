@@ -43,8 +43,8 @@ const Footer = () => {
             <Image
               src={`https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=279185&theme=${colorMode}`}
               alt="InstaDLD - Download instagram post. Support multipost download! | Product Hunt"
-              width="250"
-              height="54"
+              width="200"
+              height="43"
             />
           </Link>
           <Text width={["full", "auto"]}>

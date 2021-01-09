@@ -73,7 +73,7 @@ const Form = () => {
   }, [url]);
 
   return (
-    <Box margin="0 auto" width={["100%", "100%", "70%"]} alignSelf="center">
+    <Box margin="0 auto" width={["100%", "100%", "80%"]} alignSelf="center">
       <FormControl isRequired>
         <Input
           placeholder="https://www.instagram.com/p/CGp0Y42HKkm/"
