@@ -11,6 +11,7 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
 
   let status: number;
   let result: PostRes;
+  let errors: any;
 
   if (url) {
     await axios
@@ -69,8 +70,9 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
           status = 200;
         }
       )
-      .catch(() => {
+      .catch((err) => {
         status = 404;
+        errors = err;
       });
   }
 
@@ -81,6 +83,7 @@ const entry = async (req: NextApiRequest, res: NextApiResponse) => {
     res.statusCode = status;
     res.json({
       message: "Not found.",
+      errors,
     });
   } else {
     res.statusCode = 500;
