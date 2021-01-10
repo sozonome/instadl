@@ -27,7 +27,12 @@ const Gallery = ({
   };
 
   return (
-    <Grid marginY={8} gap={8} templateColumns={["repeat(1)", "repeat(2, 1fr)"]}>
+    <Grid
+      marginY={8}
+      gap={8}
+      templateColumns={["repeat(1)", "repeat(2, 1fr)"]}
+      alignItems="center"
+    >
       {post.map(({ url, is_video }, postIndex) => {
         if (is_video) {
           return (
