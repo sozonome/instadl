@@ -3,6 +3,7 @@ import {
   Button,
   FormControl,
   FormHelperText,
+  FormLabel,
   Input,
   useColorMode,
 } from "@chakra-ui/react";
@@ -12,12 +13,15 @@ import { useEffect, useState } from "react";
 import * as yup from "yup";
 
 import ProcessDownload from "./ProcessDownload";
+import ProcessUsername from "./ProcessUsername";
 
 type FormType = {
-  link: string;
+  username: string;
 };
 
-const Form = () => {
+const SearchForm = () => {
+  const [username, setUsername] = useState<string>("");
+  const [isPostSelected, setIsPostSelected] = useState<boolean>(false);
   const [postURL, setPostURL] = useState<string>("");
 
   const { colorMode } = useColorMode();
@@ -31,61 +35,72 @@ const Form = () => {
     setFieldValue,
   } = useFormik<FormType>({
     initialValues: {
-      link: "",
+      username: "",
     },
     validate: (formValues: FormType) => {
       const formErrors: FormikErrors<FormType> = {};
 
       if (
-        formValues.link.indexOf("instagram.com") < 0 ||
-        formValues.link.includes("script") ||
-        formValues.link.includes("iframe")
+        formValues.username === "" ||
+        formValues.username.includes("script") ||
+        formValues.username.includes("iframe")
       ) {
-        formErrors.link = "invalid link";
+        formErrors.username = "invalid username";
+      } else if (formValues.username.includes("@")) {
+        formErrors.username = `remove "@" character`;
       }
 
       return formErrors;
     },
     validationSchema: yup.object().shape<FormType>({
-      link: yup.string().required(),
+      username: yup.string().required(),
     }),
     onSubmit: (formValues: FormType) => {
-      setPostURL(formValues.link);
+      setUsername(formValues.username);
     },
   });
 
   const router = useRouter();
   const {
-    query: { url },
+    query: { id },
   } = router;
 
   useEffect(() => {
-    if (url) {
+    if (id) {
       new Promise((resolve) => {
-        resolve(setFieldValue("link", url));
+        resolve(setFieldValue("username", id));
       }).then(() => {
         handleSubmit();
       });
     }
-  }, [url]);
+  }, [id]);
+
+  const handleSelectPost = (postId: string) => {
+    window.scrollTo({ top: 0 });
+    setPostURL(postId);
+    setIsPostSelected(true);
+  };
 
   return (
     <Box margin="0 auto" width={["100%", "100%", "80%"]} alignSelf="center">
-      <FormControl isRequired>
+      <FormControl>
+        <FormLabel textAlign="center" fontSize="sm">
+          username
+        </FormLabel>
         <Input
-          placeholder="https://www.instagram.com/p/CGp0Y42HKkm/"
+          placeholder="sozonome"
           textAlign="center"
           variant="filled"
           backgroundColor={colorMode === "light" ? "gray.300" : "gray.700"}
-          name="link"
-          value={values.link}
+          name="username"
+          value={values.username}
           onChange={handleChange}
           borderRadius={32}
           height={"3.5rem"}
         />
-        {errors.link && (
+        {errors.username && (
           <FormHelperText textAlign="center" color="red.400">
-            {errors.link}
+            {errors.username}
           </FormHelperText>
         )}
       </FormControl>
@@ -94,7 +109,7 @@ const Form = () => {
         disabled={
           !dirty ||
           (dirty && Object.keys(errors).length > 0) ||
-          postURL === values.link
+          username === values.username
         }
         isFullWidth
         colorScheme={colorMode === "light" ? "teal" : "purple"}
@@ -102,23 +117,43 @@ const Form = () => {
         borderRadius={"2rem"}
         onClick={() => handleSubmit()}
       >
-        Download
+        Search
       </Button>
 
       <Button
         isFullWidth
-        marginY={4}
-        size="xs"
-        colorScheme="yellow"
-        variant="outline"
-        onClick={() => router.push("/search")}
+        size="sm"
+        colorScheme="orange"
+        opacity={0.8}
+        onClick={() => router.back()}
       >
-        search by username
+        back to home
       </Button>
 
-      {postURL && <ProcessDownload postURL={postURL} />}
+      {username && (
+        <Box hidden={isPostSelected}>
+          <ProcessUsername
+            username={username}
+            onSelectPost={handleSelectPost}
+          />
+        </Box>
+      )}
+
+      {postURL && (
+        <Box hidden={!isPostSelected}>
+          <Button
+            marginY={4}
+            size="sm"
+            isFullWidth
+            onClick={() => setIsPostSelected(false)}
+          >
+            back to profile
+          </Button>
+          <ProcessDownload postURL={postURL} />
+        </Box>
+      )}
     </Box>
   );
 };
 
-export default Form;
+export default SearchForm;
