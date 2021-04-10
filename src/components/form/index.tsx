@@ -46,7 +46,7 @@ const Form = () => {
 
       return formErrors;
     },
-    validationSchema: yup.object().shape<FormType>({
+    validationSchema: yup.object().shape({
       link: yup.string().required(),
     }),
     onSubmit: (formValues: FormType) => {

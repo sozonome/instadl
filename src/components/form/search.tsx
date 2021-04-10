@@ -52,7 +52,7 @@ const SearchForm = () => {
 
       return formErrors;
     },
-    validationSchema: yup.object().shape<FormType>({
+    validationSchema: yup.object().shape({
       username: yup.string().required(),
     }),
     onSubmit: (formValues: FormType) => {
